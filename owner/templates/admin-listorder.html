@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <table class="table">
+                <tr>
+                    <th>product name</th>
+                    <th>Category</th>
+                    <th>User</th>
+                    <th>Created Date</th>
+                    <th>Action</th>
+                </tr>
+                {%for order in orders%}
+                <tr>
+                    <td>{{order.product.product_name}}</td>
+                    <td>{{order.product.category.category_name}}</td>
+                    <td>{{order.user}}</td>
+                    <td>{{order.created_date}}</td>
+                    <td>
+                        <a href="{%url 'order-details' order.id %}">View</a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+
+</body>
+</html>
