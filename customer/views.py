@@ -6,6 +6,7 @@ from customer import forms
 from django.urls import reverse_lazy
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
+from django.core.mail import send_mail
 
 # Create your views here.
 
@@ -67,7 +68,7 @@ class AddToCartView(FormView):
         quantity=request.POST.get("quantity")
         user=request.user
         Carts.objects.create(product=product,user=user,quantity=quantity)
-        messages.success(self.request, "Book has been added")
+        messages.success(self.request, "")
         return redirect("home")
 
 
